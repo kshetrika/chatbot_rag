@@ -171,3 +171,16 @@ Models, libraries, and trademarks remain the property of their respective owners
 - Groq-hosted answer generation requires a network connection and a valid API key.
 - The Flask development server is intended for local development, not production deployment.
 - Uploaded files may contain sensitive information. Use trusted data and do not expose this prototype publicly without authentication, access controls, retention policies, and deployment hardening.
+
+## Contributing
+
+Keep changes focused and use descriptive commit messages. For example:
+
+```text
+feat: add session-scoped dataset selection
+fix: validate malformed upload requests
+docs: clarify retrieval evaluation methodology
+test: cover empty-question validation
+```
+
+For substantial changes, work on a feature branch and open a pull request against `main`. Include a concise summary, the motivation for the change, and the checks you actually ran.
