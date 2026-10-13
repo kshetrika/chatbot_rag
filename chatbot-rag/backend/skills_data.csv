@@ -1,0 +1,18 @@
+emp_id,skill,proficiency_level,certification,training_completed,certification_date
+E001,Python,Expert,Python Certified,Yes,2023-03-15
+E001,Java,Advanced,Java Certified,Yes,2022-06-20
+E002,HR Management,Expert,SHRM-CP,Yes,2023-01-10
+E003,Accounting,Advanced,CA Inter,Yes,2022-12-15
+E005,Project Management,Expert,PMP,Yes,2023-05-01
+E006,Python,Expert,Python Certified,Yes,2021-08-10
+E006,AWS,Advanced,AWS Solutions Architect,Yes,2023-01-20
+E007,Finance,Expert,CFA Level 2,Yes,2022-09-15
+E009,DevOps,Advanced,AWS DevOps,Yes,2023-04-15
+E009,Docker,Advanced,Docker Certified,Yes,2023-02-10
+E010,Supply Chain,Expert,APICS CPIM,Yes,2022-11-01
+E013,Python,Expert,Python Certified,Yes,2020-05-15
+E013,Cloud Architecture,Expert,AWS Solutions Architect,Yes,2021-10-20
+E016,QA Testing,Advanced,ISTQB Certified,Yes,2023-05-10
+E017,Tax Management,Expert,CA Final,Yes,2022-06-15
+E018,UI/UX Design,Advanced,Google UX Certificate,Yes,2023-10-15
+E020,System Administration,Advanced,Linux Certified,Yes,2023-02-15

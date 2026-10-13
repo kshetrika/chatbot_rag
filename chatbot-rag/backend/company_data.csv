@@ -1,0 +1,13 @@
+metric,value,unit,fiscal_year,quarter,growth_rate
+Total Revenue,50000000,INR,2024,Q1,15
+Total Expenses,35000000,INR,2024,Q1,12
+Net Profit,15000000,INR,2024,Q1,18
+Total Employees,25,count,2024,Q1,8
+Employee Cost,18000000,INR,2024,Q1,10
+R&D Investment,5000000,INR,2024,Q1,20
+Customer Satisfaction,92,percent,2024,Q1,5
+Market Share,8,percent,2024,Q1,2
+Active Projects,6,count,2024,Q1,30
+Project Success Rate,92,percent,2024,Q1,3
+Employee Retention Rate,96,percent,2024,Q1,-1
+Training Hours Per Employee,40,hours,2024,Q1,25

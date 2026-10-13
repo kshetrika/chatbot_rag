@@ -1,0 +1,26 @@
+emp_id,name,age,email,phone,department,designation,salary,joining_date,experience_years,status,performance_rating,leave_balance,attendance_percent,work_location,manager
+E001,Rajesh Kumar,28,rajesh@company.com,9876543210,IT,Senior Developer,1200000,2023-06-15,5,active,4.5,12,98,Bangalore,Manager-IT
+E002,Priya Singh,32,priya@company.com,9876543211,HR,HR Manager,900000,2023-08-20,4,active,4.2,10,95,Bangalore,Director-HR
+E003,Amit Patel,22,amit@company.com,9876543212,Finance,Accountant,600000,2024-02-10,0,active,3.8,15,92,Pune,Manager-Finance
+E004,Neha Gupta,23,neha@company.com,9876543213,IT,Junior Developer,450000,2024-01-15,0,active,3.5,20,88,Bangalore,Rajesh Kumar
+E005,Arun Kumar,35,arun@company.com,9876543214,Operations,Operations Manager,950000,2023-03-01,6,active,4.6,8,99,Bangalore,Director-Operations
+E006,Sarah Johnson,29,sarah@company.com,9876543215,IT,Senior Developer,1300000,2022-05-10,7,active,4.8,5,100,Bangalore,Manager-IT
+E007,Vikram Singh,31,vikram@company.com,9876543216,Finance,Finance Manager,1100000,2022-09-12,5,active,4.4,9,96,Pune,Director-Finance
+E008,Deepika Sharma,26,deepika@company.com,9876543217,HR,HR Specialist,700000,2023-11-20,2,active,4.1,14,93,Bangalore,Priya Singh
+E009,Rohit Verma,27,rohit@company.com,9876543218,IT,DevOps Engineer,950000,2023-04-01,3,active,4.3,11,94,Bangalore,Manager-IT
+E010,Anjali Mishra,34,anjali@company.com,9876543219,Operations,Operations Lead,1000000,2022-12-05,6,active,4.5,7,97,Bangalore,Arun Kumar
+E011,Karan Patel,21,karan@company.com,9876543220,IT,Junior Developer,480000,2024-03-10,0,active,3.6,20,87,Bangalore,Rajesh Kumar
+E012,Sneha Reddy,24,sneha@company.com,9876543221,Finance,Junior Accountant,550000,2024-01-20,0,active,3.7,18,89,Pune,Vikram Singh
+E013,Arjun Nair,30,arjun@company.com,9876543222,IT,Senior Developer,1250000,2021-08-15,8,active,4.7,4,100,Bangalore,Manager-IT
+E014,Meera Joshi,25,meera@company.com,9876543223,HR,HR Executive,750000,2023-09-01,2,active,4.0,13,91,Bangalore,Priya Singh
+E015,Suresh Kumar,28,suresh@company.com,9876543224,Operations,Supervisor,700000,2023-07-10,3,active,4.2,12,95,Bangalore,Arun Kumar
+E016,Pooja Kapoor,26,pooja@company.com,9876543225,IT,QA Engineer,700000,2023-05-20,2,active,4.1,13,92,Bangalore,Manager-IT
+E017,Nikhil Desai,32,nikhil@company.com,9876543226,Finance,Senior Accountant,950000,2022-06-01,5,active,4.4,8,98,Pune,Vikram Singh
+E018,Divya Sharma,27,divya@company.com,9876543227,IT,UI/UX Designer,800000,2023-10-15,2,active,4.2,12,96,Bangalore,Manager-IT
+E019,Manoj Singh,21,manoj@company.com,9876543228,Operations,Junior Executive,500000,2024-02-01,0,active,3.4,20,85,Bangalore,Arun Kumar
+E020,Ananya Gupta,29,ananya@company.com,9876543229,IT,System Admin,850000,2023-02-10,4,active,4.3,10,97,Bangalore,Manager-IT
+E021,Ravi Kumar,20,ravi@company.com,9876543230,IT,Junior Developer,470000,2024-04-01,0,active,3.5,21,84,Bangalore,Rajesh Kumar
+E022,Isha Verma,24,isha@company.com,9876543231,HR,Recruiter,680000,2023-12-10,1,active,3.9,14,90,Bangalore,Priya Singh
+E023,Varun Patel,22,varun@company.com,9876543232,Finance,Accountant,620000,2024-01-05,0,active,3.6,19,88,Pune,Vikram Singh
+E024,Sakshi Singh,30,sakshi@company.com,9876543233,IT,Senior Developer,1280000,2021-10-20,8,active,4.6,5,99,Bangalore,Manager-IT
+E025,Aditya Joshi,33,aditya@company.com,9876543234,Operations,Operations Manager,1000000,2022-11-15,6,active,4.5,8,98,Bangalore,Director-Operations

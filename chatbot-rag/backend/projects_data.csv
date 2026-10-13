@@ -1,0 +1,9 @@
+project_id,project_name,department,start_date,end_date,status,budget,revenue,team_size,description
+P001,Mobile App Development,IT,2023-06-01,2024-06-01,in-progress,500000,800000,5,Develop company mobile app for iOS and Android
+P002,Cloud Migration,IT,2024-01-15,2024-08-15,in-progress,300000,450000,4,Migrate infrastructure to AWS cloud
+P003,Data Analytics Platform,IT,2024-02-01,2024-12-01,in-progress,400000,600000,3,Build real-time analytics dashboard
+P004,HR System Upgrade,HR,2023-09-01,2024-03-01,completed,150000,200000,2,Implement new HRMS software
+P005,Financial Audit,Finance,2024-01-01,2024-04-01,completed,100000,120000,3,Annual financial audit and compliance check
+P006,Supply Chain Optimization,Operations,2024-03-01,2024-09-01,in-progress,200000,350000,4,Optimize warehouse and logistics operations
+P007,Training Program,HR,2024-02-01,2024-08-01,in-progress,80000,100000,2,Employee upskilling and certification program
+P008,Website Redesign,IT,2024-01-01,2024-05-01,completed,120000,180000,3,Complete website redesign and optimization
