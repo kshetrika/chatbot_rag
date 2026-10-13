@@ -119,7 +119,10 @@ Optional environment variables:
 | `FLASK_HOST` | `127.0.0.1` | Host address for the Flask server |
 | `FLASK_PORT` | `5000` | Backend port |
 | `FLASK_DEBUG` | `false` | Enable debug mode for local development only |
-| `CORS_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000` | Comma-separated allowed browser origins |\n| `FLASK_SECRET_KEY` | Random per process if unset | Secret used to sign session cookies; set a stable random value for normal use |\n| `SESSION_COOKIE_SECURE` | `false` | Set to `true` when serving over HTTPS |\n| `LOG_LEVEL` | `INFO` | Server logging level |
+| `CORS_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000` | Comma-separated allowed browser origins |
+| `FLASK_SECRET_KEY` | Random per process if unset | Secret used to sign session cookies; set a stable random value for normal use |
+| `SESSION_COOKIE_SECURE` | `false` | Set to `true` when serving over HTTPS |
+| `LOG_LEVEL` | `INFO` | Server logging level |
 | `UPLOAD_FOLDER` | `chatbot-rag/backend/uploaded_files` | Location for uploaded datasets |
 
 ### 4. Start the application
