@@ -120,6 +120,9 @@ Optional environment variables:
 | `FLASK_PORT` | `5000` | Backend port |
 | `FLASK_DEBUG` | `false` | Enable debug mode for local development only |
 | `CORS_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000` | Comma-separated allowed browser origins |
+| `FLASK_SECRET_KEY` | Random per process if unset | Secret used to sign session cookies; set a stable random value for normal use |
+| `SESSION_COOKIE_SECURE` | `false` | Set to `true` when serving over HTTPS |
+| `LOG_LEVEL` | `INFO` | Server logging level |
 | `UPLOAD_FOLDER` | `chatbot-rag/backend/uploaded_files` | Location for uploaded datasets |
 
 ### 4. Start the application
@@ -146,7 +149,7 @@ Example request body:
 }
 ```
 
-The response includes an answer, verification status, confidence score, source metadata, and query metadata. The confidence score is a heuristic, not a calibrated probability.
+The response includes an answer, verification status, confidence score, source metadata, and query metadata. The document-answer confidence score is a similarity-based heuristic, not a calibrated probability. Dataset and company-analytics responses are marked `not_verified` because they do not pass through the document support-checking layer.
 
 ### `POST /upload`
 
@@ -154,7 +157,7 @@ Upload a CSV or Excel file using multipart form data with the field name `file`.
 
 ### `GET /datasets`
 
-Lists available uploaded datasets and identifies the currently selected dataset.
+Lists datasets uploaded in the current browser session. Dataset selection is session-scoped; use `POST /datasets/select` with a JSON body such as `{"dataset_id":"..."}` to select one of that session's datasets.
 
 ## Model and Project Acknowledgements
 
@@ -167,7 +170,20 @@ Models, libraries, and trademarks remain the property of their respective owners
 ## Current Limitations
 
 - The support-checking layer compares semantic similarity; it is not a factual verifier and may miss unsupported claims or flag valid answers.
-- The active uploaded dataset is held in process-level state. This prototype is intended for local, single-user use; concurrent users may interfere with one another's selected dataset.
+- Uploaded dataset contents are cached in process memory. Session-scoped selection separates browser sessions but does not identify or authenticate users.
 - Groq-hosted answer generation requires a network connection and a valid API key.
 - The Flask development server is intended for local development, not production deployment.
-- Uploaded files may contain sensitive information. Use trusted data and do not expose this prototype publicly without authentication, access controls, retention policies, and deployment hardening.
+- Uploaded files may contain sensitive information. Session-scoped selection reduces accidental cross-session dataset mixing, but this prototype does not implement user authentication or authorization. Uploaded files persist on disk and should be deleted according to an explicit retention policy. Do not expose this prototype publicly without authentication, access controls, retention policies, and deployment hardening.
+
+## Contributing
+
+Keep changes focused and use descriptive commit messages. For example:
+
+```text
+feat: add session-scoped dataset selection
+fix: validate malformed upload requests
+docs: clarify retrieval evaluation methodology
+test: cover empty-question validation
+```
+
+For substantial changes, work on a feature branch and open a pull request against `main`. Include a concise summary, the motivation for the change, and the checks you actually ran.
