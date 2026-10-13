@@ -29,5 +29,5 @@ jobs:
       - name: Compile backend Python files
         run: python -m compileall -q chatbot-rag/backend
 
-      - name: Run dependency-free unit tests
+      - name: Run unit and Flask route tests
         run: python -m unittest discover -s tests -v
