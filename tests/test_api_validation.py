@@ -1,6 +1,10 @@
 """Unit tests for API input validation; these require only the Python standard library."""
 
+import os
+import sys
 import unittest
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "chatbot-rag", "backend"))
 
 from api_validation import allowed_upload_filename, validate_question_payload
 
