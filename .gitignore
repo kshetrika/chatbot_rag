@@ -16,6 +16,7 @@ venv/
 # Local application data and generated artifacts
 chatbot-rag/backend/chroma_db/
 chatbot-rag/backend/uploaded_files/
+chatbot-rag/backend/processed_data/
 chatbot-rag/backend/.cache/
 
 # Editor and OS files
