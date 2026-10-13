@@ -588,7 +588,7 @@
 
     <script>
         const API_URL = 'http://localhost:5000';
-        let currentDataset = null;
+        let currentDataset = null; // session-scoped dataset ID
         let messageCount = 0;
 
         // File upload
@@ -602,13 +602,14 @@
             try {
                 const response = await fetch(`${API_URL}/upload`, {
                     method: 'POST',
+                    credentials: 'include',
                     body: formData
                 });
 
                 const data = await response.json();
 
                 if (data.status === 'success') {
-                    currentDataset = data.filename;
+                    currentDataset = data.dataset_id;
                     document.getElementById('chat-title').textContent = data.filename;
                     document.getElementById('chat-subtitle').textContent = 
                         `${data.summary.rows} rows × ${data.summary.columns} columns`;
@@ -632,32 +633,49 @@
         // Load datasets
         async function loadDatasets() {
             try {
-                const response = await fetch(`${API_URL}/datasets`);
+                const response = await fetch(`${API_URL}/datasets`, { credentials: 'include' });
                 const data = await response.json();
 
                 const listDiv = document.getElementById('dataset-list');
-                if (data.datasets.length === 0) {
-                    listDiv.innerHTML = '<p style="font-size: 13px; color: var(--text-tertiary); padding: 8px;">No datasets uploaded yet</p>';
-                } else {
-                    listDiv.innerHTML = data.datasets.map(file =>
-                        `<div class="dataset-item ${file === data.current ? 'active' : ''}" onclick="selectDataset('${file}')">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                            </svg>
-                            <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">${file}</span>
-                        </div>`
-                    ).join('');
+                listDiv.replaceChildren();
+                if (!Array.isArray(data.datasets) || data.datasets.length === 0) {
+                    const empty = document.createElement('p');
+                    empty.style.cssText = 'font-size: 13px; color: var(--text-tertiary); padding: 8px;';
+                    empty.textContent = 'No datasets uploaded yet';
+                    listDiv.appendChild(empty);
+                    return;
                 }
+                data.datasets.forEach(dataset => {
+                    const item = document.createElement('button');
+                    item.type = 'button';
+                    item.className = 'dataset-item' + (dataset.id === data.current ? ' active' : '');
+                    item.style.width = '100%';
+                    item.style.border = '0';
+                    item.style.textAlign = 'left';
+                    item.textContent = dataset.filename;
+                    item.addEventListener('click', () => selectDataset(dataset.id, dataset.filename));
+                    listDiv.appendChild(item);
+                });
             } catch (error) {
                 console.error('Error:', error);
             }
         }
 
-        function selectDataset(filename) {
-            currentDataset = filename;
-            document.getElementById('chat-title').textContent = filename;
-            loadDatasets();
+        async function selectDataset(datasetId, filename) {
+            try {
+                const response = await fetch(`${API_URL}/datasets/select`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ dataset_id: datasetId })
+                });
+                if (!response.ok) throw new Error('Dataset selection failed');
+                currentDataset = datasetId;
+                document.getElementById('chat-title').textContent = filename;
+                loadDatasets();
+            } catch (error) {
+                console.error('Dataset selection error:', error);
+            }
         }
 
         function newChat() {
@@ -716,6 +734,7 @@
             try {
                 const response = await fetch(`${API_URL}/ask`, {
                     method: 'POST',
+                    credentials: 'include',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ question, include_sources: true })
                 });
@@ -747,20 +766,21 @@
             const messageDiv = document.createElement('div');
             messageDiv.className = 'message';
 
-            const avatar = type === 'user' 
-                ? '<div class="message-avatar user-avatar">You</div>'
-                : '<div class="message-avatar ai-avatar">AI</div>';
+            const avatar = document.createElement('div');
+            avatar.className = 'message-avatar ' + (type === 'user' ? 'user-avatar' : 'ai-avatar');
+            avatar.textContent = type === 'user' ? 'You' : 'AI';
 
-            const author = type === 'user' ? 'You' : 'AI Assistant';
+            const messageContent = document.createElement('div');
+            messageContent.className = 'message-content';
+            const author = document.createElement('div');
+            author.className = 'message-author';
+            author.textContent = type === 'user' ? 'You' : 'AI Assistant';
+            const messageText = document.createElement('div');
+            messageText.className = 'message-text';
+            messageText.textContent = String(content ?? '');
 
-            messageDiv.innerHTML = `
-                ${avatar}
-                <div class="message-content">
-                    <div class="message-author">${author}</div>
-                    <div class="message-text">${content}</div>
-                </div>
-            `;
-
+            messageContent.append(author, messageText);
+            messageDiv.append(avatar, messageContent);
             wrapper.appendChild(messageDiv);
             scrollToBottom();
         }
