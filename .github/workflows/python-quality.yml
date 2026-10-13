@@ -11,8 +11,8 @@ permissions:
   contents: read
 
 jobs:
-  syntax:
-    name: Python syntax check
+  quality:
+    name: Syntax and unit tests
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -25,3 +25,6 @@ jobs:
 
       - name: Compile backend Python files
         run: python -m compileall -q chatbot-rag/backend
+
+      - name: Run dependency-free unit tests
+        run: python -m unittest discover -s tests -v
