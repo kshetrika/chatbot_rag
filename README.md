@@ -170,7 +170,7 @@ Models, libraries, and trademarks remain the property of their respective owners
 ## Current Limitations
 
 - The support-checking layer compares semantic similarity; it is not a factual verifier and may miss unsupported claims or flag valid answers.
-- The active uploaded dataset is held in process-level state. This prototype is intended for local, single-user use; concurrent users may interfere with one another's selected dataset.
+- Uploaded dataset contents are cached in process memory and uploaded files persist on disk. Session-scoped selection reduces accidental cross-session mixing, but the prototype has no authentication, authorization, or automated file-retention mechanism.
 - Groq-hosted answer generation requires a network connection and a valid API key.
 - The Flask development server is intended for local development, not production deployment.
 - Uploaded files may contain sensitive information. Session-scoped selection reduces accidental cross-session dataset mixing, but this prototype does not implement user authentication or authorization. Uploaded files persist on disk and should be deleted according to an explicit retention policy. Do not expose this prototype publicly without authentication, access controls, retention policies, and deployment hardening.
